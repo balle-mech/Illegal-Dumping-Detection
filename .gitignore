@@ -1,3 +1,11 @@
+# raspberry pi
+a2c6201@*
+
+# video data
+/my_study/data/rawvideo_dataset/
+/my_study/data/pkl_dataset/
+/my_study/data/custom_dataset/
+
 /test3.9
 /py36
 /py38
