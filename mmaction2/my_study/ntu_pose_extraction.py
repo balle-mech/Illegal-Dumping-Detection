@@ -297,8 +297,8 @@ def ntu_pose_extraction(vid, skip_postproc=False):
     anno['img_shape'] = (1080, 1920)
     anno['original_shape'] = (1080, 1920)
     anno['total_frames'] = keypoints.shape[1]
-    label_mapping = {'i': 1, 'w': 2, 'g': 3}
-    anno['label'] = label_mapping[osp.basename(vid).split('_')[0][:1]]
+    # 1:不法投棄、２：歩行者、３：バイク
+    anno['label'] = osp.basename(vid).split('_')[0]
     # anno['label'] = int(osp.basename(vid).split('A')[1][:3]) - 1
     tmp_dir.cleanup()
 
