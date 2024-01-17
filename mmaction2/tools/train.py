@@ -123,19 +123,18 @@ def main():
 
     cfg = Config.fromfile(args.config)
 
-    # merge cli arguments to config
+    # cli引数を設定にマージする
     cfg = merge_args(cfg, args)
 
-    # build the runner from config
+    # cfgからランナーを構築する
     if 'runner_type' not in cfg:
         # build the default runner
         runner = Runner.from_cfg(cfg)
     else:
-        # build customized runner from the registry
-        # if 'runner_type' is set in the cfg
+        # 'runner_type'が設定されている場合、レジストリからカスタマイズされたランナーを構築する
         runner = RUNNERS.build(cfg)
 
-    # start training
+    # トレーニングを開始する
     runner.train()
 
 
