@@ -58,14 +58,18 @@ class PoseDataset(BaseActionDataset):
 
     def load_data_list(self) -> List[Dict]:
         """Load annotation file to get skeleton information."""
+        """訳注：アノテーションファイルをロードしてスケルトン情報を取得します。"""
         assert self.ann_file.endswith('.pkl')
         mmengine.exists(self.ann_file)
         data_list = mmengine.load(self.ann_file)
 
+        # データセットを訓練、検証、テストに分割する場合
         if self.split is not None:
-            print(data_list)
             split, annos = data_list['split'], data_list['annotations']
+            # 各データ項目を識別するための識別子を取得する
             identifier = 'filename' if 'filename' in annos[0] else 'frame_dir'
+            # splitを識別子でフィルタリングする
+            # set()は重複を削除する
             split = set(split[self.split])
             data_list = [x for x in annos if x[identifier] in split]
 
