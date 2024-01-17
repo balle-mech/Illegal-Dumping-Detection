@@ -8,6 +8,7 @@ from mmengine.dataset import BaseDataset
 from mmaction.utils import ConfigType
 
 
+# 以下は、base_datasetを継承したクラスの定義
 class BaseActionDataset(BaseDataset, metaclass=ABCMeta):
     """Base class for datasets.
 
@@ -45,6 +46,9 @@ class BaseActionDataset(BaseDataset, metaclass=ABCMeta):
         self.num_classes = num_classes
         self.start_index = start_index
         self.modality = modality
+        # ここに渡されるデータは、mmaction2/my_study/data/pkl_dataset/custom_dataset/custom_dataset.pkl
+        # print(f'base_ann_file: {ann_file}')
+        # print(f'base_pipeline: {pipeline}')
         super().__init__(
             ann_file,
             pipeline=pipeline,
