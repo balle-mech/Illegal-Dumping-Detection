@@ -1,3 +1,5 @@
+from ....my_study.config import CUSTOM_DATA_PATH
+
 _base_ = '../../_base_/default_runtime.py'
 
 model = dict(
@@ -20,12 +22,13 @@ model = dict(
     cls_head=dict(
         type='I3DHead',
         in_channels=512,
-        num_classes=60,
+        num_classes=3,
         dropout_ratio=0.5,
         average_clips='prob'))
 
 dataset_type = 'PoseDataset'
-ann_file = 'data/skeleton/ntu60_2d.pkl'
+load_from = '/content/drive/MyDrive/研究/mmaction2/configs/skeleton/posec3d/slowonly_r50_8xb32-u48-240e_k400-keypoint_20230731-7f498b55.pth'
+ann_file = CUSTOM_DATA_PATH
 left_kp = [1, 3, 5, 7, 9, 11, 13, 15]
 right_kp = [2, 4, 6, 8, 10, 12, 14, 16]
 train_pipeline = [
