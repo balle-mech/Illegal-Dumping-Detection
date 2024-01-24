@@ -13,12 +13,12 @@ from tempfile import TemporaryDirectory
 
 args = abc.abstractproperty()
 args.det_config = 'demo/demo_configs/faster-rcnn_r50-caffe_fpn_ms-1x_coco-person.py'  # noqa: E501
-# 学習済みモデルのパス
+# ここで指定しているのは、学習済みの人間の節々を検出するためのモデルの設定ファイル
 args.det_checkpoint = 'https://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_r50_fpn_1x_coco-person/faster_rcnn_r50_fpn_1x_coco-person_20201216_175929-d022e227.pth'  # noqa: E501
 args.det_score_thr = 0.5
-# 学習済みモデルのパス
+# ここで指定しているのは姿勢推定のためのモデルの設定ファイル
 args.pose_config = 'demo/demo_configs/td-hm_hrnet-w32_8xb64-210e_coco-256x192_infer.py'  # noqa: E501
-# ここで指定したパスに学習済みモデルがダウンロードされる
+# ここでは学習済みの姿勢推定のためのモデルを指定する
 args.pose_checkpoint = 'https://download.openmmlab.com/mmpose/top_down/hrnet/hrnet_w32_coco_256x192-c78dce93_20200708.pth'  # noqa: E501
 
 
@@ -243,6 +243,7 @@ def ntu_det_postproc(vid, det_results):
 
 def pose_inference_with_align(args, frame_paths, det_results):
     # filter frame without det bbox
+    # 訳：det bboxがないフレームをフィルタリングする
     det_results = [
         frm_dets for frm_dets in det_results if frm_dets.shape[0] > 0
     ]
@@ -297,7 +298,7 @@ def ntu_pose_extraction(vid, skip_postproc=False):
     anno['img_shape'] = (1080, 1920)
     anno['original_shape'] = (1080, 1920)
     anno['total_frames'] = keypoints.shape[1]
-    # 1:不法投棄、２：歩行者、３：バイク
+    # 0:バイク、1:不法投棄、２：歩行者
     anno['label'] = osp.basename(vid).split('_')[0]
     # anno['label'] = int(osp.basename(vid).split('A')[1][:3]) - 1
     tmp_dir.cleanup()
