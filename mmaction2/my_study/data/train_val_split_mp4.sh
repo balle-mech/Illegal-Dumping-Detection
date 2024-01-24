@@ -1,7 +1,9 @@
 #!/bin/bash
 
-class_num=2
-training_rate=0.8
+echo "Enter the class number: "
+read class_num
+
+training_rate=0.9
 
 # Set the directory path
 directory="rawvideo_dataset"
