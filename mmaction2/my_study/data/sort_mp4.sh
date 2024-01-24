@@ -1,6 +1,7 @@
 #!/bin/bash
 
-class_num=2
+echo "Enter the class number: "
+read class_num
 
 # Set the directory path
 directory="rawvideo_dataset"
