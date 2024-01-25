@@ -10,8 +10,8 @@ echo "Enter the file number: "
 read file_num
 
 for file in rawvideo_dataset/*.MOV; do
-  ffmpeg -i "$file" -c:v libx264 -c:a aac -strict experimental -b:a 192k -movflags faststart "rawvideo_dataset/${class_number}_${file_number}.mp4"
-  ((file_number++))
+  ffmpeg -i "$file" -c:v libx264 -c:a aac -strict experimental -b:a 192k -movflags faststart "rawvideo_dataset/${class_num}_${file_num}.mp4"
+  ((file_num++))
 done
 
 # 元のMOVファイルを全て削除する
