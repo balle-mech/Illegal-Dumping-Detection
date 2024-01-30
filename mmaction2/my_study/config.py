@@ -7,5 +7,5 @@ load_dotenv(verbose=True)
 dotenv_path = '../.env'
 load_dotenv(dotenv_path)
 
-CUSTOM_DATA_PATH = os.environ['CUSTOM_DATA_PATH']
-RASP_VIDEO_PATH = os.environ['RASP_VIDEO_PATH']
+CUSTOM_DATA_PATH = os.environ.get('CUSTOM_DATA_PATH')
+RASP_VIDEO_PATH = os.environ.get('RASP_VIDEO_PATH')
