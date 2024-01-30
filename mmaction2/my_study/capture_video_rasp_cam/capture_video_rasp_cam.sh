@@ -4,9 +4,6 @@
 echo "Enter the class number: "
 read class_num
 
-echo "Enter the file number: "
-read file_num
-
 # Set the duration of the video capture (in seconds)
 duration=15
 
