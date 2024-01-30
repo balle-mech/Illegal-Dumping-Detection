@@ -15,7 +15,7 @@ video_path="capture_video_rasp_cam/video/"
 current_date=$(date +%m%d%H%M)
 
 filename="${class_num}_${current_date}"
-output_file_path="${RASP_VIDEO_PATH}${filename}"
+output_file_path="${video_path}${filename}"
 # ------------------------------------------------------------------------------
 
 # Capture video using raspivid
