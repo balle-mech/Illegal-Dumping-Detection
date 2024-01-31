@@ -119,7 +119,8 @@ test_dataloader = dict(
         pipeline=test_pipeline,
         test_mode=True))
 
-val_evaluator = [dict(type='AccMetric')]
+val_evaluator = [dict(type='AccMetric', interval=1, metrics=[
+                      'top_k_accuracy', 'mean_class_accuracy'])]
 test_evaluator = val_evaluator
 
 train_cfg = dict(
