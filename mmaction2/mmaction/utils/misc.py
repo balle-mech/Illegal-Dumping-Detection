@@ -40,6 +40,7 @@ def frame_extract(video_path: str,
                   short_side: Optional[int] = None,
                   out_dir: str = './tmp'):
     """Extract frames given video_path.
+    # 訳: video_pathからフレームを抽出する。
 
     Args:
         video_path (str): The video path.
