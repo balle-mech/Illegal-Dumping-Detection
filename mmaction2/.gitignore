@@ -1,6 +1,7 @@
 # videodata
 my_study/data/rawvideo_dataset/
-my_study/capture_video_rasp_cam/video
+my_study/rasp_cam/raw_video
+my_study/rasp_cam/mp4_video
 
 a2c6201@*
 
