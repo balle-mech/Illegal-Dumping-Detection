@@ -19,9 +19,9 @@ output_file_path="${video_path}${filename}"
 # ------------------------------------------------------------------------------
 
 # Capture video using raspivid
-libcamera-vid -t 15000 -o $output_file_path.h264
+libcamera-vid -t 60000 -o $output_file_path.h264
 
-echo "ビデオを $output_file_path.h264に保存しました。"
+echo "60sビデオを $output_file_path.h264に保存しました。"
 
 # Convert the video to mp4 format
 MP4Box -add $output_file_path.h264 $output_file_path.mp4
