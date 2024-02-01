@@ -1,14 +1,15 @@
 import pickle
 import os
 
+directory = './my_study/data/pkl_dataset/'
+output_file = './my_study/data/custom_dataset/custom_dataset_train.pkl'
+
 # その個数を辞書にまとめる
 file_count_dict = {
     'dumping': 0,
     'walker': 0,
     'guard': 0
 }
-
-directory = './my_study/data/pkl_dataset/'
 
 # ファイル名が'label_list'から始まるファイルの個数を数える
 for i, file in enumerate(os.listdir(directory)):
@@ -30,6 +31,5 @@ for file in pickle_files:
         data.extend(pickle.load(f))
 
 # まとめたリストを新しいpickleファイルとして保存する
-output_file = './my_study/data/custom_dataset/custom_dataset_train.pkl'
 with open(output_file, 'wb') as f:
     pickle.dump(data, f)
