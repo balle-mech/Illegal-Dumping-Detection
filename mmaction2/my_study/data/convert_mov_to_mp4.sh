@@ -4,9 +4,9 @@
 # ffmpeg -i ./illegal_2.MOV -c:v libx264 -c:a aac -strict experimental -b:a 192k -movflags faststart illegal_2.mp4
 
 # 変換元のMOVファイルが入っているディレクトリを指定
-directory_original="../rasp_cam/raw_video"
+directory_original="raw_video"
 # 変換後のmp4ファイルを保存するディレクトリを指定
-directory_converted="../rasp_cam/mp4_video"
+# directory_converted="../rasp_cam/mp4_video"
 
 # echo "Enter the class number: "
 # read class_num
@@ -14,11 +14,12 @@ directory_converted="../rasp_cam/mp4_video"
 echo "mov or MOV?"
 read mov_or_MOV
 
-for file in ${directory_original}/*.${mov_or_MOV}; do
-  # 拡張子を取り除いたファイル名を取得
-  new_file_name=${file%.${mov_or_MOV}}.mp4
-  ffmpeg -i "$file" -c:v libx264 -c:a aac -strict experimental -b:a 192k -movflags faststart "${directory_converted}/${new_file_name}"
-  echo "${file}を${directory_converted}/${new_file_name}に変換しました"
+for filepath in ${directory_original}/*.${mov_or_MOV}; do
+  file_name=$(basename $filepath)
+  # 拡張子をmp4に変更したファイル名を取得
+  new_file_name=${file_name%.${mov_or_MOV}}.mp4
+  ffmpeg -i "$filepath" -c:v libx264 -c:a aac -strict experimental -b:a 192k -movflags faststart "${directory_original}/${new_file_name}"
+  echo "${file_name}を${directory_original}/${new_file_name}に変換しました"
 done
 
 # 元のMOVファイルを全て削除する
