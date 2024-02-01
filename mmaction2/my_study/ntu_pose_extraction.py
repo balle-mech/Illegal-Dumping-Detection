@@ -12,13 +12,14 @@ from tempfile import TemporaryDirectory
 
 
 args = abc.abstractproperty()
+# 学習済みのモデルを使うための設定ファイル
 args.det_config = 'demo/demo_configs/faster-rcnn_r50-caffe_fpn_ms-1x_coco-person.py'  # noqa: E501
-# ここで指定しているのは、学習済みの人間の節々を検出するためのモデルの設定ファイル
+# 学習済みの人間の節々を検出するためのモデル
 args.det_checkpoint = 'https://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_r50_fpn_1x_coco-person/faster_rcnn_r50_fpn_1x_coco-person_20201216_175929-d022e227.pth'  # noqa: E501
 args.det_score_thr = 0.5
-# ここで指定しているのは姿勢推定のためのモデルの設定ファイル
+# 姿勢推定のためのモデルの設定ファイル
 args.pose_config = 'demo/demo_configs/td-hm_hrnet-w32_8xb64-210e_coco-256x192_infer.py'  # noqa: E501
-# ここでは学習済みの姿勢推定のためのモデルを指定する
+# 学習済みの姿勢推定のためのモデル
 args.pose_checkpoint = 'https://download.openmmlab.com/mmpose/top_down/hrnet/hrnet_w32_coco_256x192-c78dce93_20200708.pth'  # noqa: E501
 
 
