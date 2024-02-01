@@ -1,10 +1,3 @@
-# videodata
-my_study/data/raw_video/
-my_study/rasp_cam/raw_video
-my_study/rasp_cam/mp4_video
-
-a2c6201@*
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -150,7 +143,7 @@ work_dirs/
 # avoid soft links created by MIM
 mmaction/tools/*
 
-*.ipynb
+# *.ipynb
 
 # unignore ipython notebook files in demo
 !demo/*.ipynb

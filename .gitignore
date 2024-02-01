@@ -1,10 +1,13 @@
 # raspberry pi
-a2c6201@*
+*@*
 
 # video data
-/my_study/data/rawvideo_dataset/
-/my_study/data/pkl_dataset/
-/my_study/data/custom_dataset/
+mmaction2/my_study/data/pkl/train
+mmaction2/my_study/data/pkl/val
+mmaction2/my_study/data/pkl/custom_dataset/
+mmaction2/my_study/data/raw_video/
+mmaction2/my_study/rasp_cam/raw_video
+mmaction2/my_study/rasp_cam/mp4_video
 
 /test3.9
 /py36
@@ -155,7 +158,7 @@ work_dirs/
 # avoid soft links created by MIM
 mmaction/tools/*
 
-*.ipynb
+# *.ipynb
 
 # unignore ipython notebook files in demo
 !demo/*.ipynb
