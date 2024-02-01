@@ -6,20 +6,24 @@ read class_num
 training_rate=0.9
 
 # Set the directory path
-directory="rawvideo_dataset"
+directory="raw_video"
 # Change to the directory
 cd "$directory" || exit
 
-# ファイル数を取得
+# split済みのファイルは無視するための処理 ----------------------------------------
+# クラスファイル数を取得
 file_count=$(ls -1 ${class_num}_[0-9]*.mp4 | wc -l)
+# split済みのファイル数を取得
 train_file_count=$(ls -1 ${class_num}_train_[0-9]*.mp4 | wc -l)
 val_file_count=$(ls -1 ${class_num}_val_[0-9]*.mp4 | wc -l)
+# split後のファイル数を取得
 train_num=$(echo " $file_count * $training_rate" | bc)
 train_num=$(printf "%.0f" $train_num)
 val_num=$(echo "scale=0; $file_count - $train_num" | bc)
-# split済みのファイル番号分を足す
+# split済みのファイル数を未splitファイル数に足す
 train_num=$(echo " $train_num + $train_file_count" | bc)
 val_num=$(echo " $val_num + $val_file_count" | bc)
+# -------------------------------------------------------------------------------
 
 # 現在の日時を取得
 current_date=$(date +%m%d%H%M)
