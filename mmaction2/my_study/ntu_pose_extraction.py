@@ -245,6 +245,8 @@ def ntu_det_postproc(vid, det_results):
 def pose_inference_with_align(args, frame_paths, det_results):
     # filter frame without det bbox
     # 訳：det bboxがないフレームをフィルタリングする
+    # bboxとは、物体の境界ボックスのこと
+    # つまり、物体が検出されなかったフレームをフィルタリングする
     det_results = [
         frm_dets for frm_dets in det_results if frm_dets.shape[0] > 0
     ]
