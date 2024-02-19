@@ -126,7 +126,7 @@ work_dirs/
 .DS_Store
 
 # Pytorch
-*.pth
+# *.pth
 
 # Profile
 *.prof
