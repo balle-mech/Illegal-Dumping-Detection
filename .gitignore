@@ -4,11 +4,11 @@
 # video data
 mmaction2/my_study/data/pkl/train
 mmaction2/my_study/data/pkl/val
-mmaction2/my_study/data/pkl/custom_dataset/
 mmaction2/my_study/data/pkl/*.mp4
 mmaction2/my_study/data/raw_video/
 mmaction2/my_study/rasp_cam/raw_video
 mmaction2/my_study/rasp_cam/mp4_video
+mmaction2/my_study/rasp_cam/pkl
 
 /test3.9
 /py36
@@ -132,7 +132,7 @@ venv.bak/
 /data
 .vscode
 .idea
-*.pkl
+# *.pkl
 *.pkl.json
 *.log.json
 benchlist.txt
