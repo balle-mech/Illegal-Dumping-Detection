@@ -10,8 +10,8 @@ read file_num
 directory="raw_video"
 
 # ソート前のファイル名を正規表現で取得
-unsorted_file_name=${class_num}__[0-9]*.mp4
-# unsorted_file_name=IMG_[0-9]*.mp4
+# unsorted_file_name=${class_num}_[0-9]*.mp4
+unsorted_file_name=IMG_[0-9]*.mp4
 
 # Change to the directory
 cd "$directory" || exit
@@ -19,7 +19,9 @@ cd "$directory" || exit
 # Rename the files
 # for file in $(ls ${class_num}_* | sort -V); do
 for file in $(ls $unsorted_file_name | sort -V); do
+  echo "file: $file"
   new_name="${class_num}_${file_num}.mp4"
+  echo "newname: $new_name"
   mv "$file" "${new_name}"
   ((file_num++))
 done
